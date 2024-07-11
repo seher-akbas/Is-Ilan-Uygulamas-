@@ -1,7 +1,8 @@
 import React from 'react'
 import jobImage from '../assets/images/job_image.jpg';
+import { useSelector } from 'react-redux';
 
-const is_ilanlari_veriler = [
+export const is_ilanlari_veriler = [
     {
         "job_title": "Tam Yığın Geliştirici",
         "job_description": "Ön uç ve arka uç geliştirmede deneyimli bir Tam Yığın Geliştirici arıyoruz. İdeal aday, ön uç web mimarisini geliştirmek ve tasarlamak, uygulamaların duyarlılığını sağlamak ve web tasarım özellikleri için grafik tasarımcılarla birlikte çalışmakla sorumlu olacaktır. Ayrıca, bir projeyi başlangıçtan nihai ürüne kadar takip etmek gerekeceğinden iyi organizasyon becerilerine ve ayrıntılara dikkat etmeye ihtiyaç vardır.",
@@ -83,9 +84,12 @@ const IlanKartlari = ({ ilan }) => (
     </div>
 );
 function IlanList() {
+    const filteredItems = useSelector(state => state.filter.items);
     return (
         <div className='ilan-listesi'>
-            {is_ilanlari_veriler.map((is_ilanlari_veri, index) => (<IlanKartlari key={index} ilan={is_ilanlari_veri} />))}
+            {filteredItems.map((ilan, index) => (
+                <IlanKartlari key={index} ilan={ilan} />
+            ))}
         </div>
     );
 };
