@@ -1,1 +1,1 @@
-# Is-Ilan-Uygulamas-
+# Is-Ilan-Uygulamasi
