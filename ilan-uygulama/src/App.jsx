@@ -5,6 +5,7 @@ import IlanList from './components/IlanList'
 import { filter } from './features/filterSlice';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IlanDetay from './components/IlanDetay';
+import IlanKartları from './components/IlanKartları';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IlanList />} />
+          <Route path="/kartlar" element={<IlanKartları />} />
           <Route path="/details" element={<IlanDetay />} />
         </Routes>
       </BrowserRouter>
