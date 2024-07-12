@@ -77,3 +77,15 @@ body {
   font-style: italic;
   color: #555;
 }
+
+.geri_butonu {
+  width: 75px;
+  height: 50px;
+  color: #ccc;
+  background-color: rgb(13, 105, 211);
+  border-radius: 8px;
+  border-color: rgb(0, 54, 99);
+  position: relative;
+  top: 0px;
+  right: 0px;
+}
