@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import './App.css'
 import IlanList from './components/IlanList'
 import { filter } from './features/filterSlice';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import IlanDetay from './components/IlanDetay';
 
 function App() {
 
@@ -26,7 +28,12 @@ function App() {
           <button id='arama_butonu' onClick={handleFilter}>Ara</button>
         </div>
       </div>
-      <IlanList />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<IlanList />} />
+          <Route path="/details" element={<IlanDetay />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
