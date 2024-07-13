@@ -44,6 +44,7 @@ body {
 .arama_kutusu button {
   width: 75px;
   height: 50px;
+  color: #ccc;
   background-color: rgb(13, 105, 211);
   border-radius: 8px;
   border-color: rgb(0, 54, 99);

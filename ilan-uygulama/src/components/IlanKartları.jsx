@@ -78,7 +78,7 @@ export const is_ilanlari_veriler = [
 function IlanKartları({ ilan }) {
     const navigate = useNavigate();
     return (
-        <div className='ilan' onClick={() => navigate("/details")}>
+        <div className='ilan' onClick={() => navigate("/details", { state: { ilan } })}>
             <div className='ilan-baslik'>{ilan.job_title}</div>
             <img src={ilan.job_image_url} alt={ilan.job_title}></img>
             <div className='ilan-aciklama'>{ilan.job}</div>
