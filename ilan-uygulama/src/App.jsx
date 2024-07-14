@@ -6,7 +6,6 @@ import { filter } from './features/filterSlice';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IlanDetay from './components/IlanDetay';
 import IlanKartları from './components/IlanKartları';
-import ErrorPage from './components/ErrorPage';
 
 function App() {
 
@@ -42,7 +41,6 @@ function App() {
           <Route path="/" element={<IlanList />} />
           <Route path="/kartlar" element={<IlanKartları />} />
           <Route path="/details" element={<IlanDetay />} />
-          <Route path="/error" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>
