@@ -14,8 +14,11 @@ export const filterSlice = createSlice({
                 item.category.toLowerCase().includes(action.payload.toLowerCase())
             );
         },
+        resetFilter: (state) => {
+            state.items = is_ilanlari_veriler;
+        },
     },
 });
 
-export const { filter } = filterSlice.actions;
+export const { filter, resetFilter } = filterSlice.actions;
 export default filterSlice.reducer;

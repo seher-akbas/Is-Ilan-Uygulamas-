@@ -6,19 +6,26 @@ import { filter } from './features/filterSlice';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IlanDetay from './components/IlanDetay';
 import IlanKartları from './components/IlanKartları';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
 
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
+  const [warning, setWarning] = useState('');
 
   const handleChange = (e) => {
     console.log(e.target.value)
     setSearchTerm(e.target.value);
+    setWarning('');
   };
 
   const handleFilter = () => {
-    dispatch(filter(searchTerm));
+    if (searchTerm.trim() === '') {
+      setWarning('Lütfen bir arama yapabilmek için veri giriniz');
+    } else {
+      dispatch(filter(searchTerm));
+    }
   };
   return (
     <>
@@ -29,11 +36,13 @@ function App() {
           <button id='arama_butonu' onClick={handleFilter}>Ara</button>
         </div>
       </div>
+      {warning && <p style={{ color: 'red' }}>{warning}</p>}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IlanList />} />
           <Route path="/kartlar" element={<IlanKartları />} />
           <Route path="/details" element={<IlanDetay />} />
+          <Route path="/error" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>
