@@ -1,14 +1,13 @@
 import React from 'react';
 import IlanKartlari from './IlanKartları';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { resetFilter } from '../features/filterSlice';
 
 function IlanList() {
     const filteredItems = useSelector(state => state.filter.items);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const location = useLocation();
 
     const handleReset = () => {
         dispatch(resetFilter());

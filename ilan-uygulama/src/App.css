@@ -15,7 +15,7 @@ body {
 }
 
 .header {
-  width: 95%;
+  width: 100%;
   background-color: rgb(187, 187, 187);
   padding: 40px;
   box-sizing: border-box;
@@ -40,6 +40,8 @@ body {
   box-sizing: border-box;
   border: none;
 }
+
+
 
 .arama_kutusu button {
   width: 75px;
@@ -91,3 +93,24 @@ body {
   right: 0px;
   margin-top: 8px;
 }
+
+.filtreleme_secenekleri {
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.filtreleme_secenekleri select {
+  width: 10%;
+  padding: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+select option {}
