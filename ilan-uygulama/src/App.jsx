@@ -1,32 +1,36 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import './App.css'
-import IlanList from './components/IlanList'
-import { filter } from './features/filterSlice';
+import './App.css';
+import IlanList from './components/IlanList';
+import { filter, filterByCategory, filterByLocation, filterByCategoryAndLocation } from './features/filterSlice';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import IlanDetay from './components/IlanDetay';
-import IlanKartları from './components/IlanKartları';
-import ErrorPage from './components/ErrorPage';
+import IlanKartları, { is_ilanlari_veriler } from './components/IlanKartları';
 
 function App() {
-
   const dispatch = useDispatch();
   const [searchTerm, setSearchTerm] = useState('');
-  const [warning, setWarning] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
 
   const handleChange = (e) => {
-    console.log(e.target.value)
     setSearchTerm(e.target.value);
-    setWarning('');
   };
 
   const handleFilter = () => {
-    if (searchTerm.trim() === '') {
-      setWarning('Lütfen bir arama yapabilmek için veri giriniz');
-    } else {
-      dispatch(filter(searchTerm));
-    }
+    dispatch(filter(searchTerm));
   };
+
+  const handleCategoryChange = (e) => {
+    setSelectedCategory(e.target.value);
+    dispatch(filterByCategoryAndLocation({ category: e.target.value, location: selectedLocation }));
+  };
+
+  const handleLocationChange = (e) => {
+    setSelectedLocation(e.target.value);
+    dispatch(filterByCategoryAndLocation({ category: selectedCategory, location: e.target.value }));
+  };
+
   return (
     <>
       <h1>İş İlan Portalı</h1>
@@ -36,17 +40,29 @@ function App() {
           <button id='arama_butonu' onClick={handleFilter}>Ara</button>
         </div>
       </div>
-      {warning && <p style={{ color: 'red' }}>{warning}</p>}
+      <div className='filtreleme_secenekleri'>
+        <select name="" id="" onChange={handleCategoryChange} value={selectedCategory}>
+          <option value="">Tüm Kategoriler</option>
+          {Array.from(new Set(is_ilanlari_veriler.map(konum => konum.category))).map((category, index) => (
+            <option key={index} value={category}>{category}</option>
+          ))}
+        </select>
+        <select name="" id="" onChange={handleLocationChange} value={selectedLocation}>
+          <option value="">Tüm Konumlar</option>
+          {Array.from(new Set(is_ilanlari_veriler.map(konum => konum.location))).map((location, index) => (
+            <option key={index} value={location}>{location}</option>
+          ))}
+        </select>
+      </div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IlanList />} />
           <Route path="/kartlar" element={<IlanKartları />} />
           <Route path="/details" element={<IlanDetay />} />
-          <Route path="/error" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
