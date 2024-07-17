@@ -13,7 +13,9 @@ export const filterSlice = createSlice({
         filter: (state, action) => {
             state.searchTerm = action.payload;
             state.items = is_ilanlari_veriler.filter(item =>
-                item.job_title.toLowerCase().includes(state.searchTerm.toLowerCase())
+                item.location.toLowerCase().includes(action.payload.toLowerCase()) ||
+                item.job_title.toLowerCase().includes(action.payload.toLowerCase()) ||
+                item.category.toLowerCase().includes(action.payload.toLowerCase())
             );
         },
         filterByCategory: (state, action) => {
