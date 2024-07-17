@@ -11,6 +11,13 @@ export const is_ilanlari_veriler = [
         "category": "Yazılım Geliştirme"
     },
     {
+        "job_title": "Tam Yığın Geliştirici",
+        "job_description": "Ön uç ve arka uç geliştirmede deneyimli bir Tam Yığın Geliştirici arıyoruz. İdeal aday, ön uç web mimarisini geliştirmek ve tasarlamak, uygulamaların duyarlılığını sağlamak ve web tasarım özellikleri için grafik tasarımcılarla birlikte çalışmakla sorumlu olacaktır. Ayrıca, bir projeyi başlangıçtan nihai ürüne kadar takip etmek gerekeceğinden iyi organizasyon becerilerine ve ayrıntılara dikkat etmeye ihtiyaç vardır.",
+        "job_image_url": jobImage,
+        "location": "İzmir, Türkiye",
+        "category": "Yazılım Geliştirme"
+    },
+    {
         "job_title": "Mobil Uygulama Geliştirici",
         "job_description": "Android ve iOS platformlarında mobil uygulamalar geliştirme konusunda deneyimli bir geliştirici arıyoruz. Aday, kullanıcı dostu ve işlevsel mobil uygulamalar yaratma konusunda yetenekli olmalıdır.",
         "job_image_url": jobImage,
