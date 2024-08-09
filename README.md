@@ -21,7 +21,7 @@ Bu proje, kullanıcıların iş ilanlarını arayabileceği, filtreleyebileceği
 1. Depoyu klonlayın:
 
 ```bash
-https://github.com/seher-akbas/Is-Ilan-Uygulamasi.git
+git clone https://github.com/seher-akbas/Is-Ilan-Uygulamasi.git
 
 2. Proje dizinine gidin:
 
